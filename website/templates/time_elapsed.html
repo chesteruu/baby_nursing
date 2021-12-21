@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <input id="last_nursing_time" hidden="hidden" value="{{ timestamps.last_nursing_time }}" />
+    <div class="container">
+        <p class="last-feed-time-text">上次喂奶：{{ timestamps.last_nursing_time }} </p>
+        <hr style="text-align:left;margin-left:0">
+        <p class="elapsed-time-text">00:00</p>
+        <p></p>
+        <div class="buttons-container">
+            <form method="GET" action="{{ url_for('new_nursing') }}">
+                <button name="feeding">喂奶</button>
+            </form>
+            <form method="GET" action="{{ url_for('new_poo') }}">
+                <button name="poo">粑粑</button>
+            </form>
+        </div>
+    </div>
+    <script src="../static/js/time-and-date-handling.js"></script>
+    <script src="../static/js/stopwatch.js"></script>
+<div>
+</div>
+{% endblock %}
