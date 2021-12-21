@@ -11,7 +11,7 @@ nursing_processor = NursingProcessor()
 def index():
     return render_template('time_elapsed.html', timestamps={
         "last_nursing_time": nursing_processor.get_last_nursing_time().strftime("%Y-%m-%dT%H:%M:%S"),
-        "last_nursing_time_display": nursing_processor.get_last_nursing_time().strftime("%Y-%m-%d %H:%M:%S")})
+        "last_nursing_time_display": nursing_processor.get_last_nursing_time().strftime("%H:%M:%S")})
 
 
 @app.route('/new_nursing', methods=['GET'])
@@ -36,3 +36,9 @@ def new_poo_get():
 def new_poo():
     nursing_processor.add_poo(datetime.utcnow())
     return redirect('/')
+
+
+@app.route('/statistic', methods=['GET'])
+def statistic():
+    all_nursing = nursing_processor.get_all_nursing()
+    return render_template('statistic.html', statistic_result={"nursing_history": all_nursing})

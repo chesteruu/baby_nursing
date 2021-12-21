@@ -81,7 +81,7 @@
     }
 
     .buttons-container {
-        width: 500px;
+        width: 80%;
         margin-top: 100px;
         margin-right: 100px;
         display: -webkit-flex;
@@ -104,8 +104,13 @@
         border-color: black;
     }
 
-    #stop-button {
-        display: none;
+    table, th, td {
+        font-family: monospace;
+        font-size: 40px;
+        border: 2px solid white;
+        border-collapse: collapse;
+        text-align: left;
+        width: auto;
     }
 }
 
