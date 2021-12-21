@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method=POST action={{ url_for('new_poo') }}>
-    <button value="1">拉粑粑啦</button>
-</form>
+    <div class="container">
+        <form method=POST action={{ url_for('new_poo') }}>
+            <button value="1">拉+1</button>
+        </form>
+    </div>
 {% endblock %}
