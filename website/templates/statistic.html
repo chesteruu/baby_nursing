@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <li>喂奶记录：</li>
+    <table >
+        <tr>
+            <th>日期</th>
+            <th>摄入量</th>
+        </tr>
+
+        {% for nursing in statistic_result.nursing_history %}
+        <tr>
+            <td>{{ nursing.feeding_time }}</td>
+            <td>{{ nursing.milk_feeding_ml }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

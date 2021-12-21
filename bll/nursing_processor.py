@@ -53,3 +53,6 @@ class NursingProcessor:
         self._last_nursing_time = _get_last_nursing_time()
         return self._last_nursing_time
 
+    def get_all_nursing(self):
+        return Nursing.query.order_by(Nursing.id.desc()).all()
+
