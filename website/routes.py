@@ -9,7 +9,9 @@ nursing_processor = NursingProcessor()
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
 def index():
-    return render_template('time_elapsed.html', timestamps={"last_nursing_time": nursing_processor.get_last_nursing_time()})
+    return render_template('time_elapsed.html', timestamps={
+        "last_nursing_time": nursing_processor.get_last_nursing_time().strftime("%Y-%m-%dT%H:%M:%S"),
+        "last_nursing_time_display": nursing_processor.get_last_nursing_time().strftime("%Y-%m-%d %H:%M:%S")})
 
 
 @app.route('/new_nursing', methods=['GET'])
