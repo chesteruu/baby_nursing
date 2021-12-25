@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect
+from models.nursing import Nursing
 from website import app
 from datetime import datetime
 from bll.nursing_processor import NursingProcessor
@@ -42,3 +43,26 @@ def new_poo():
 def statistic():
     all_nursing = nursing_processor.get_all_nursing()
     return render_template('statistic.html', statistic_result={"nursing_history": all_nursing})
+
+
+@app.route('/update', methods=['GET'])
+def update():
+    nursing_id = request.args['id']
+    nursing = nursing_processor.get_nursing_by_id(nursing_id)
+    return render_template('update.html', 
+                           nursing = 
+                               {"id": nursing_id, 
+                               "date": nursing.feeding_time, 
+                               "milk_feeding_ml": nursing.milk_feeding_ml})
+
+
+@app.route('/update', methods=['POST'])
+def update_nursing():
+    print(request.form)
+    nursing = Nursing()
+    nursing.id = int(request.form['id'])
+    nursing.feeding_time = datetime.fromisoformat(request.form['date'])
+    nursing.milk_feeding_ml = request.form['milk_feeding_ml']
+    nursing_processor.update_nursing(nursing)
+    return redirect("/")
+

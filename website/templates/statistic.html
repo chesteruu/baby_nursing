@@ -12,6 +12,7 @@
         <tr>
             <td>{{ nursing.feeding_time }}</td>
             <td>{{ nursing.milk_feeding_ml }}</td>
+            <td><a href='{{ url_for("update") }}?id={{ nursing.id }}'>更新</a></td>
         </tr>
         {% endfor %}
     </table>
