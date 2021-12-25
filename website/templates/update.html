@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST" action={{ url_for('update') }}>
+            <input id="milk_feeding_ml" name="milk_feeding_ml" type="text" value="{{ nursing.milk_feeding_ml }}">
+            <input id="date" name="date" type="text" value="{{ nursing.date }}">
+            <input id="id" name="id" type="hidden" value="{{ nursing.id }} ">
+            <button type="submit">确认</button>
+        </form>
+    </div>
+{% endblock %}
+

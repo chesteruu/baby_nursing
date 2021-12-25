@@ -56,3 +56,16 @@ class NursingProcessor:
     def get_all_nursing(self):
         return Nursing.query.order_by(Nursing.id.desc()).all()
 
+    def get_nursing_by_id(self, filter_id: int):
+        return Nursing.query.filter_by(id = filter_id).first()
+
+    def update_nursing(self, nursing: Nursing):
+        nursingdb = Nursing.query.filter_by(id = nursing.id).first()
+        if nursingdb is None:
+            raise FileNotFoundError("Record not found {}".format(id))
+        nursingdb.feeding_time = nursing.feeding_time
+        nursingdb.milk_feeding_ml = nursing.milk_feeding_ml
+
+        db.session.commit()
+
+

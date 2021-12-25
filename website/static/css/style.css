@@ -112,6 +112,12 @@
         text-align: left;
         width: auto;
     }
+
+    .a {
+        font-family: monospace;
+        font-size: 40px;
+        color: beige;
+    }
 }
 
 /* Medium devices */
