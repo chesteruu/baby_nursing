@@ -68,7 +68,7 @@ def update_nursing():
 
 
 @app.route('/delete', methods=['POST'])
-def update_nursing():
+def delete_nursing():
     nursing_processor.delete_nursing(int(request.form['id']))
     return redirect("/")
 
