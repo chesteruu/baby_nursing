@@ -13,7 +13,7 @@
             <td>{{ nursing.feeding_time }}</td>
             <td>{{ nursing.milk_feeding_ml }}</td>
             <td><a href='{{ url_for("update") }}?id={{ nursing.id }}'>更新</a></td>
-            <td><a href='{{ url_for("delete") }}?id={{ nursing.id }}'>删除</a></td>
+            <td><form action="{{ url_for('delete') }}" method="post"><input id="id" name="id" type="hidden" value="{{ nursing.id }} "><button type="submit">删除</button></form></td>
         </tr>
         {% endfor %}
     </table>
