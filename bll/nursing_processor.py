@@ -68,4 +68,10 @@ class NursingProcessor:
 
         db.session.commit()
 
+    def delete_nursing(self, id: int):
+        nursingdb = Nursing.query.filter_by(id=id).first()
+        if nursingdb is None:
+            raise FileNotFoundError("Record not found {}".format(id))
+        nursingdb.delete()
+
 
