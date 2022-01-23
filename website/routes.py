@@ -46,6 +46,8 @@ def new_poo():
 @app.route('/statistic', methods=['GET'])
 def statistic():
     all_nursing = nursing_processor.get_all_nursing()
+    for nursing in all_nursing:
+        nursing.feeding_time = nursing.feeding_time.astimezone()
     all_poo = nursing_processor.get_all_poo()
     return render_template('statistic.html', statistic_result={"nursing_history": all_nursing, "poo_history": all_poo})
 

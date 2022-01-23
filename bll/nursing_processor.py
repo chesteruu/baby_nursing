@@ -11,17 +11,17 @@ from website import db
 
 def _get_last_poo_time():
     last_poo_time: datetime = db.session.query(func.max(Poo.poo_time)).scalar()
-    return last_poo_time.replace(tzinfo=timezone.utc).astimezone(tz=None) if last_poo_time else datetime.min
+    return last_poo_time.replace(tzinfo=timezone.utc).astimezone() if last_poo_time else datetime.min
 
 
 def _get_last_nursing_time():
     last_nursing_time = db.session.query(func.max(Nursing.feeding_time)).scalar()
-    return last_nursing_time.replace(tzinfo=timezone.utc).astimezone(tz=None) if last_nursing_time else datetime.min
+    return last_nursing_time.replace(tzinfo=timezone.utc).astimezone() if last_nursing_time else datetime.min
 
 
 def _get_last_bath_time():
     last_bath_time = db.session.query(func.max(Bath.bath_time)).scalar()
-    return last_bath_time.replace(tzinfo=timezone.utc).astimezone(tz=None) if last_bath_time else datetime.min
+    return last_bath_time.replace(tzinfo=timezone.utc).astimezone() if last_bath_time else datetime.min
 
 
 class NursingProcessor:
