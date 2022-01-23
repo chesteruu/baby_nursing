@@ -12,9 +12,9 @@ nursing_processor = NursingProcessor()
 def index():
     return render_template('time_elapsed.html', timestamps={
         "last_nursing_time": nursing_processor.get_last_nursing_time().astimezone().strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "last_nursing_time_display": nursing_processor.get_last_nursing_time().strftime("%H:%M:%S"),
-        "last_bath_time": nursing_processor.get_last_bath_time().strftime("%Y-%m-%d"),
-        "last_poo_time": nursing_processor.get_last_poo_time().strftime("%Y-%m-%d")})
+        "last_nursing_time_display": nursing_processor.get_last_nursing_time().astimezone().strftime("%H:%M:%S"),
+        "last_bath_time": nursing_processor.get_last_bath_time().astimezone().strftime("%Y-%m-%d"),
+        "last_poo_time": nursing_processor.get_last_poo_time().astimezone().strftime("%Y-%m-%d")})
 
 
 @app.route('/new_nursing', methods=['GET'])
