@@ -17,4 +17,23 @@
         </tr>
         {% endfor %}
     </table>
+
+    <li>拉粑粑记录：</li>
+`   <table>
+        <tr>
+            <th>日期</th>
+            <th>拉肚子？</th>
+        </tr>
+
+        {% for poo in statistic_result.poo_history %}
+        <tr>
+            <td>{{ poo.poo_time }}</td>
+            {% if poo.is_sick %}
+            <td><input type="checkbox" id="{{ poo.id }}" checked name="拉肚子"></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

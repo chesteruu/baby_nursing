@@ -118,6 +118,17 @@
         font-size: 40px;
         color: beige;
     }
+
+    input:checkbox {
+        background-color: #6ab135;
+        height: 100px;
+        width: 200px;
+        color: #6C6488;
+        font-size: 80px;
+        color: lightblue;
+        font-family: monospace;
+        border-color: black;
+    }
 }
 
 /* Medium devices */

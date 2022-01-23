@@ -17,7 +17,11 @@
             <form method="GET" action="{{ url_for('statistic') }}">
                 <button name="statistic">记录</button>
             </form>
+            <form method="POST" action="{{ url_for('new_bath') }}">
+                <button name="statistic">洗澡</button>
+            </form>
         </div>
+        <p class="last-feed-time-text">上次粑粑：{{ timestamps.last_poo_time }} 上次洗澡：{{ timestamps.last_bath_time }} </p>
     </div>
     <script src="../static/js/time-and-date-handling.js"></script>
     <script src="../static/js/stopwatch.js"></script>
