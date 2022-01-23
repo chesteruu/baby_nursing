@@ -1,3 +1,5 @@
+import zoneinfo
+
 from flask import render_template, request, redirect
 from models.nursing import Nursing
 from website import app
@@ -11,7 +13,7 @@ nursing_processor = NursingProcessor()
 @app.route('/index', methods=['GET'])
 def index():
     return render_template('time_elapsed.html', timestamps={
-        "last_nursing_time": nursing_processor.get_last_nursing_time().strftime("%Y-%m-%dT%H:%M:%S"),
+        "last_nursing_time": nursing_processor.get_last_nursing_time().astimezone().strftime("%Y-%m-%dT%H:%M:%S%z"),
         "last_nursing_time_display": nursing_processor.get_last_nursing_time().strftime("%H:%M:%S"),
         "last_bath_time": nursing_processor.get_last_bath_time().strftime("%Y-%m-%d"),
         "last_poo_time": nursing_processor.get_last_poo_time().strftime("%Y-%m-%d")})
