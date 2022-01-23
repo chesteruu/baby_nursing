@@ -1,5 +1,3 @@
-import zoneinfo
-
 from flask import render_template, request, redirect
 from models.nursing import Nursing
 from website import app
